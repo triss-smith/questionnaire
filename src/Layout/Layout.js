@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router,  Link, Route, Switch } from "react-router-dom"
 import QuestionsPage from './QuestionsPage';
 import SplashPage from "./SplashPage"
-import reactDom from 'react-dom';
+import ResultsPage from './ResultsPage';
 
 function Layout() {
     const [quizInfo, setQuizInfo] = useState([]);
@@ -40,7 +40,9 @@ function Layout() {
                 <Route path="/questions">
                 <QuestionsPage quizInfo={quizInfo} userAnswers={userAnswers}/>
                 </Route>
-           
+                <Route path="/results">
+                    <ResultsPage />
+                </Route>
            </Switch>
           </Router>
        
