@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect,useState } from "react";
+import { useState } from "react";
 import TrueFalseButtons from "./TrueFalseButtons";
 
 function QuestionsPage({ quizInfo,userAnswers }) {

@@ -16,8 +16,8 @@ function SplashPage() {
             Can you score 100%?
         </h2>
       <div className="row justify-content-center py-4">
-        <Link className="btn btn-primary my-4 w-25" to="/questions">
-          Begin
+        <Link className="btn btn-primary my-4 w-50 p-1" to="/questions">
+          <p className="display-6">Begin</p>
         </Link>
       </div>
     </div>

@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {BrowserRouter as Router,  Link, Route, Switch } from "react-router-dom"
+import React, { useState, useEffect, useCallback } from 'react';
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import QuestionsPage from './QuestionsPage';
 import SplashPage from "./SplashPage"
 import ResultsPage from './ResultsPage';
 
 function Layout() {
     const [quizInfo, setQuizInfo] = useState([]);
-    const userAnswers = [];
+    const [userAnswers, setUserAnswers] = useState([])
+    console.log(userAnswers)
     async function loadQuizInfo() {
+        
+        setUserAnswers([])
         try{
             const response = await fetch("https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean");
             const responseJson = await response.json();
@@ -16,19 +19,10 @@ function Layout() {
               console.log(error)
             }
     }
-        
-      useEffect(() => {       
-           setQuizInfo([]);
-           
-        loadQuizInfo();    
-      },[])
-      console.log(quizInfo)
-      let questions = quizInfo.map((result, index) => {
-        return <div key={index + 1}>{`${index + 1}. ${result.question}`}</div>;
-      });
-      let answers = quizInfo.map((result, index) => {
-        return result.correct_answer;
-      });
+       const callback = useCallback(loadQuizInfo, [])
+      useEffect(callback,[callback])
+      
+      
     
     return (
         
@@ -41,7 +35,7 @@ function Layout() {
                 <QuestionsPage quizInfo={quizInfo} userAnswers={userAnswers}/>
                 </Route>
                 <Route path="/results">
-                    <ResultsPage />
+                <ResultsPage userAnswers={userAnswers} quizInfo={quizInfo} loadQuizInfo={loadQuizInfo}/>
                 </Route>
            </Switch>
           </Router>

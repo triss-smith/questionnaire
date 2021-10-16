@@ -8,31 +8,40 @@ function TrueFalseButtons({
   quizInfo,
 }) {
     const history = useHistory();
-  const handleClickTrue = () => {
-    if (quizInfo[questionIndex + 1]) {
-      userAnswers.push("+");
-      setQuestionIndex((index) => index + 1);
-    } else {
-        history.push("/results")
-    }
-  };
+  
   const handleClick = (answer) => {
-    if (quizInfo[questionIndex + 1] && answer === false) {
-      userAnswers.push("-");
-      setQuestionIndex((index) => index + 1);
+      
+    if (quizInfo[questionIndex + 1]) {
+        if( quizInfo[questionIndex].correct_answer === answer) {
+            userAnswers.push("+");
+            setQuestionIndex((index) => index + 1);
+            console.log("correct")
+             }
+             else {
+                 userAnswers.push("-")
+                 setQuestionIndex((index) => index + 1);
+                console.log("false")
+             }
     } 
-    else if(quizInfo[questionIndex + 1] && answer === true){
-        userAnswers.push("+");
-      setQuestionIndex((index) => index + 1);
-    }
+    
     else {
+        if( quizInfo[questionIndex].correct_answer === answer) {
+            userAnswers.push("+");
+            setQuestionIndex((index) => index + 1);
+            console.log("correct")
+             }
+             else {
+                 userAnswers.push("-")
+                 setQuestionIndex((index) => index + 1);
+                console.log("false")
+             }
         history.push("/results")
     }
   };
   return (
     <div>
-      <button onClick={() => handleClick(true)} className="btn btn-primary m-3 w-25">True</button>
-      <button onClick={() => handleClick(false)} className="btn btn-danger m-3 w-25">False</button>
+      <button onClick={() => handleClick("True")} className="btn btn-primary m-3 w-25">True</button>
+      <button onClick={() => handleClick("False")} className="btn btn-danger m-3 w-25">False</button>
     </div>
   );
 }
