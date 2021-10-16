@@ -1,4 +1,4 @@
-## Questionnare
+## Questionnaire
 
 ### Description
 Small 10 question True/False questionnare built using React, using React Hooks. Styled using BootStrap v5.1.
