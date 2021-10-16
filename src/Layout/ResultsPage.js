@@ -24,9 +24,10 @@ function ResultsPage({ userAnswers, quizInfo, loadQuizInfo }) {
     <div className="text-center justify-content-center">
       <div className="p-5">
         <h1 className="display-1 text-center">Results</h1>
-        <h2>
-          {correctCount} of {quizInfo.length}
-        </h2>
+        <h3 className="display-4">You Scored: </h3>
+        <h4 className="display-6">
+          {correctCount} / {quizInfo.length} Correct
+        </h4>
         {resultsMap}
         <Link
           to="/"
