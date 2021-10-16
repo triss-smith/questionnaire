@@ -14,20 +14,19 @@ function ResultsPage({ userAnswers, quizInfo, loadQuizInfo }) {
       </div>
     );
   });
-  console.log(userAnswers)
-  const correctCount = userAnswers.reduce((acc,element) => {
-      console.log(element)
-      if(element === "+"){
-          acc += 1
-      }
-      return acc
-  },0)
-  console.log(correctCount)
+  const correctCount = userAnswers.reduce((acc, element) => {
+    if (element === "+") {
+      acc += 1;
+    }
+    return acc;
+  }, 0);
   return (
     <div className="text-center justify-content-center">
       <div className="p-5">
         <h1 className="display-1 text-center">Results</h1>
-        <h2>{correctCount} of {quizInfo.length}</h2>
+        <h2>
+          {correctCount} of {quizInfo.length}
+        </h2>
         {resultsMap}
         <Link
           to="/"

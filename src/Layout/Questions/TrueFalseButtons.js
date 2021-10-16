@@ -11,18 +11,18 @@ function TrueFalseButtons({
 
   const answerCheck = (answer) => {
     if (quizInfo[questionIndex].correct_answer === answer) {
-        userAnswers.push("+");
-        setQuestionIndex((index) => index + 1);
-      } else {
-        userAnswers.push("-");
-        setQuestionIndex((index) => index + 1);
-      }
-  }
+      userAnswers.push("+");
+      setQuestionIndex((index) => index + 1);
+    } else {
+      userAnswers.push("-");
+      setQuestionIndex((index) => index + 1);
+    }
+  };
   const handleClick = (answer) => {
     if (quizInfo[questionIndex + 1]) {
       answerCheck(answer);
     } else {
-      answerCheck(answer)
+      answerCheck(answer);
       history.push("/results");
     }
   };
