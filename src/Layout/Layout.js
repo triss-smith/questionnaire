@@ -26,7 +26,7 @@ function Layout() {
     <Router>
       <Switch>
         <Route exact={true} path="/">
-          <SplashPage />
+          <SplashPage quizInfo={quizInfo}/>
         </Route>
         <Route path="/questions">
           <QuestionsPage quizInfo={quizInfo} userAnswers={userAnswers} />

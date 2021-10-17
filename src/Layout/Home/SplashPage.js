@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SplashPage() {
+function SplashPage({ quizInfo }) {
   return (
     <div>
       <div className="row">
@@ -10,7 +10,7 @@ function SplashPage() {
         </h1>
 
         <h2 className="display-4 text-center p-5">
-          You will be presented will 10 True or False questions.
+          You will be presented {quizInfo.length} True or False questions.
         </h2>
 
         <h2 className="display-4 text-center p-5">Can you score 100%?</h2>
